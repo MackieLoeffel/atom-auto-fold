@@ -1,0 +1,15 @@
+{
+  "name": "auto-fold",
+  "main": "./lib/auto-fold",
+  "version": "0.0.0",
+  "description": "Automatically folds the editor on specified rows",
+  "keywords": [
+  ],
+  "repository": "https://github.com/atom/auto-fold",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+  }
+}
