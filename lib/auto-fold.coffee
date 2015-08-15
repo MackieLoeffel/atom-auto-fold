@@ -1,4 +1,4 @@
-# @auto-fold regex /^\s+serialize/ /fold/
+# @auto-fold regex /^\s+serialize/ /^fold/
 module.exports = AutoFold =
   config:
     autofold:
@@ -31,18 +31,21 @@ module.exports = AutoFold =
   doFold: (action, editor) ->
     editor ?= atom.workspace.getActiveTextEditor()
 
-    # regexes = []
-    # for row in [0..editor.getLastBufferRow()]
-    #   continue unless editor.isBufferRowCommented(row)
-    #   editor.lineTextForBufferRow(row).replace /@auto-fold\s+regex\s+(?:\/(.*?)\/\s+)+/g, (args...) ->
-    #     console.log args
-    #   break
+    regexes = []
+    for row in [0..editor.getLastBufferRow()]
+      continue unless editor.isBufferRowCommented(row)
+      if editor.lineTextForBufferRow(row).indexOf("@auto-fold regex") != -1
+        editor.lineTextForBufferRow(row).replace /\/(.*?)\//g, (m, regex) ->
+          regexes.push new RegExp(regex)
+          return m
+      break
 
     eachRow = (f) ->
       foldNext = false
       any = false
       for row in [0..editor.getLastBufferRow()]
-        if editor.isFoldableAtBufferRow(row) && foldNext
+        if editor.isFoldableAtBufferRow(row) && (foldNext || regexes.some((r) -> editor.lineTextForBufferRow(row).match(r)?))
+          #console.log editor.lineTextForBufferRow row
           any = true if f(row)
         foldNext = editor.isBufferRowCommented(row) && editor.lineTextForBufferRow(row).indexOf("@auto-fold here") != -1
       return any
