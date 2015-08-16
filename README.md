@@ -2,7 +2,7 @@
 
 Fold (and unfold) marked places in a opened file with a single keypress.
 
-![Screenshot](readme.gif)
+![Screenshot](https://mackieloeffel.github.io/auto-fold.gif)
 
 Keybindings:
  * `alt-a` toggles the fold in the current file
