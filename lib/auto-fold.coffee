@@ -1,4 +1,3 @@
-# @auto-fold regex /^\s+serialize/ /^fold/
 module.exports = AutoFold =
   config:
     autofold:
@@ -15,16 +14,9 @@ module.exports = AutoFold =
     if atom.config.get('auto-fold.autofold')
       atom.workspace.observeTextEditors (editor) =>
         editor.displayBuffer.tokenizedBuffer.onDidTokenize =>
-          @doFold('fold', editor)
+          @doFold 'fold', editor
 
-  # @auto-fold here
-  deactivate: ->
-    console.log "dascasds"
-
-  serialize: ->
-    console.log "dascasds"
-
-  toggle: -> @doFold("toggle")
+  toggle: -> @doFold "toggle"
   fold: -> @doFold "fold"
   unfold: -> @doFold "unfold"
 
@@ -45,7 +37,6 @@ module.exports = AutoFold =
       any = false
       for row in [0..editor.getLastBufferRow()]
         if editor.isFoldableAtBufferRow(row) && (foldNext || regexes.some((r) -> editor.lineTextForBufferRow(row).match(r)?))
-          #console.log editor.lineTextForBufferRow row
           any = true if f(row)
         foldNext = editor.isBufferRowCommented(row) && editor.lineTextForBufferRow(row).indexOf("@auto-fold here") != -1
       return any
