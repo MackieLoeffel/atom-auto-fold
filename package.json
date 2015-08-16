@@ -1,17 +1,16 @@
 {
   "name": "auto-fold",
   "main": "./lib/auto-fold",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Automatically folds the editor on specified rows",
   "keywords": [
-      "fold",
-      "productivity"
+    "fold",
+    "productivity"
   ],
   "repository": "https://github.com/MackieLoeffel/atom-auto-fold",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
