@@ -1,7 +1,7 @@
 {
   "name": "auto-fold",
   "main": "./lib/auto-fold",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Automatically folds the editor on specified rows",
   "keywords": [
     "fold",
