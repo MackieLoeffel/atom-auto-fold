@@ -9,7 +9,8 @@ Keybindings:
 
 ## Markers
 Markers tell this package, where it should fold. The following markers are available:
-  * `@atom-fold here`: Marks the current line for folding
-  * `@atom-fold next`: Marks the next line for folding
-  * `@atom-fold regex /regex1/ /regex2/ ...`: marks all lines, which match the specified regexes
-    * must be on the first commented line in the file!
+  * `@auto-fold here`: Marks the next line for folding.
+    * must be on a commented line.
+  * `@auto-fold regex /regex1/ /regex2/ ...`: marks all lines, which match the specified regexes
+    * must be on the first commented line in the file.
+    * You can also define global regexes via the settings.

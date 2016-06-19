@@ -8,10 +8,10 @@ else
   console.log
     a:
       1
-    # @auto-fold next
+    # @auto-fold here
     b:
       c: "x"
       d: "y"
-    d: # @auto-fold here
+    d: //
       e: "z"
       f: "q"
