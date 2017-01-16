@@ -26,7 +26,7 @@ module.exports = AutoFold =
 
     if atom.config.get('auto-fold.autofold')
       atom.workspace.observeTextEditors (editor) =>
-        editor.displayBuffer.tokenizedBuffer.onDidTokenize =>
+        editor.onDidTokenize =>
           @doFold 'fold', editor
 
     atom.config.observe 'auto-fold.defaultMarkerRegexes', (value) =>
